@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:pawtrix.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="pawtrix.Views.RoomView"
+             x:DataType="vm:RoomViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:RoomViewModel/>
+    </Design.DataContext>
+    
+        <Grid RowDefinitions="50,*,Auto" Margin="5">
+            <StackPanel Height="50" Background="DarkBlue">
+                <Grid ColumnDefinitions="50, *, 50">
+                    <Button Grid.Column="0" Width="50" Height="50" CornerRadius="15" Click="Exit" Background="Transparent">
+                        <Image Width="50" Height="50" Source="../../Assets/back.png"/>
+                    </Button>
+                    <TextBlock Grid.Column="1" Text="{Binding RoomName}" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+                    <Image Grid.Column="2" Width="50" Height="50" Source="../../Assets/hashtag.png"/>
+                </Grid>
+            </StackPanel>
+            
+            <ListBox AutoScrollToSelectedItem="true" x:Name="MessageListBox" Name="MessageListBox" SelectedItem="{Binding SelectedItem}" KeyDown="TextBoxInput" Grid.Row="1" ItemsSource="{Binding Messages}" VerticalAlignment="Bottom">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="vm:MessageViewModel" >
+                        <Grid ColumnDefinitions="50,200,*" Background="DarkBlue">
+                            <Image Name="Icon" Source="../Assets/profile.png" Height="50" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBlock Text="{Binding Sender}" Height="50" TextTrimming="CharacterEllipsis" MaxWidth="200"  FontWeight="Bold" Grid.Column="1" VerticalAlignment="Top" Name="MessageUser" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding Text}" MinHeight="50" Grid.Column="2" VerticalAlignment="Bottom" Name="MessageText" HorizontalAlignment="Left"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+                <!-->
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <DockPanel LastChildFill="True" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem">
+                        <Setter Property="DockPanel.Dock" Value="Bottom" />
+                    </Style>
+                </ListBox.Styles>
+                <!-->
+            
+            <Grid Grid.Row="2" ColumnDefinitions="*, 40" Background="DarkBlue" Margin="10">
+                <TextBox MaxHeight="180" MinHeight="40" AcceptsReturn="True" HorizontalContentAlignment="Stretch" Grid.Column="0" x:Name="MessageBox" PlaceholderText="Message..."/>
+                <Button HotKey="Shift+Enter" VerticalAlignment="Center" Grid.Column="1" Name="Send" Click="SendClick" CornerRadius="15" Width="40" Height="40" Background="Transparent">
+                    <Image Source="../Assets/send.png" Width="40" Height="40"/>
+                </Button>
+            </Grid>
+        </Grid>
+</UserControl>
