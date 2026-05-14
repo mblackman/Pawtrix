@@ -1,4 +1,4 @@
-name: Build Mawtrix
+name: Build pawtrix
 
 on:
   push:
@@ -26,11 +26,11 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Zip Directory Linux
         if: runner.os == 'Linux'
-        run: zip -r Mawtrix-${{ runner.os }}.zip Mawtrix/bin/Release/net8.0
+        run: zip -r pawtrix-${{ runner.os }}.zip pawtrix/bin/Release/net8.0
       - name: Zip Directory Windows
         if: runner.os == 'Windows'
-        run: Compress-Archive -Path Mawtrix/bin/Release/net8.0/* -DestinationPath Mawtrix-${{runner.os}}.zip
+        run: Compress-Archive -Path pawtrix/bin/Release/net8.0/* -DestinationPath pawtrix-${{runner.os}}.zip
       - uses: actions/upload-artifact@v4
         with:
-          name: Mawtrix-${{ runner.os }}
-          path: Mawtrix-${{runner.os}}.zip
+          name: pawtrix-${{ runner.os }}
+          path: pawtrix-${{runner.os}}.zip
