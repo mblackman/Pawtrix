@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="pawtrix/Objects/Message.axaml" value="pawtrix/pawtrix.csproj" />
+        <entry key="pawtrix/Objects/RoomButton.axaml" value="pawtrix/pawtrix.csproj" />
+        <entry key="pawtrix/Views/LoginWindowView.axaml" value="pawtrix/pawtrix.csproj" />
+        <entry key="pawtrix/Views/MainWindow.axaml" value="pawtrix/pawtrix.csproj" />
+        <entry key="pawtrix/Views/RoomListView.axaml" value="pawtrix/pawtrix.csproj" />
+        <entry key="pawtrix/Views/RoomView.axaml" value="pawtrix/pawtrix.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
