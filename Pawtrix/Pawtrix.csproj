@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**" />
+        <AvaloniaResource Include="Assets/**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -22,16 +22,5 @@
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.1" />
         <PackageReference Include="Meowtrix.Sdk" Version="1.0.9" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Objects\RoomButton.axaml.cs">
-        <DependentUpon>RoomButton.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="ViewModels\Message.cs">
-        <DependentUpon>Message.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
     </ItemGroup>
 </Project>

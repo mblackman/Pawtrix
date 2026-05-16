@@ -11,6 +11,12 @@ namespace pawtrix.Objects;
 public partial class RoomButton : Button
 {
     private readonly string _roomId;
+
+    public RoomButton()
+    {
+        InitializeComponent();
+        _roomId = string.Empty;
+    }
     
     public RoomButton(string name, Bitmap? icon, string roomId)
     {
